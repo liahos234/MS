@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Corners - Adam Kreek TEDx Talk Pitch</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#090d16',
+                        cardBg: '#0f172a',
+                        archetypeRed: '#ef4444',
+                        archetypeBlue: '#3b82f6',
+                        archetypeGreen: '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 50%, #090d16 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+
+        /* Typewriter Cursor Effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+            color: #3b82f6;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Glassmorphism Base Styling */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* Initial Blurred & Unfocused States */
+        .card-initial-blur {
+            filter: blur(8px);
+            opacity: 0.5;
+            transform: scale(0.96) translateY(0);
+        }
+
+        .card-unfocused {
+            filter: blur(10px) brightness(0.4);
+            opacity: 0.3;
+            transform: scale(0.94);
+        }
+
+        .card-focused {
+            filter: blur(0px) brightness(1.1);
+            opacity: 1;
+            transform: scale(1.03) translateY(-8px);
+            z-index: 20;
+        }
+
+        /* Neon Border & Glow Highlights */
+        .card-focused.red-glow {
+            border-color: #ef4444;
+            box-shadow: 0 0 35px -5px rgba(239, 68, 68, 0.6), inset 0 0 15px rgba(239, 68, 68, 0.2);
+        }
+
+        .card-focused.blue-glow {
+            border-color: #3b82f6;
+            box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.6), inset 0 0 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .card-focused.green-glow {
+            border-color: #10b981;
+            box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.6), inset 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Ambient Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25;
+            animation: orbFloat 12s infinite alternate ease-in-out;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(20px, -20px); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #090d16; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden relative">
+
+    <!-- Background Glow Orbs -->
+    <div class="orb w-96 h-96 bg-red-600 top-10 left-10"></div>
+    <div class="orb w-96 h-96 bg-blue-600 top-1/3 right-10"></div>
+    <div class="orb w-96 h-96 bg-emerald-600 bottom-10 left-1/3"></div>
+
+    <!-- Top Header -->
+    <header class="relative z-30 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 via-blue-500 to-emerald-400 p-[2px] shadow-lg shadow-blue-500/20">
+                    <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center text-white font-black">
+                        <i class="fa-solid fa-shapes text-blue-400 text-lg"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold text-white tracking-wide block leading-none uppercase">Four Corners</span>
+                </div>
+            </div>
+
+            <div class="hidden sm:flex items-center space-x-2 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-semibold text-slate-300">Interactive Archetype Grid</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow flex flex-col justify-center w-full">
+
+        <!-- Title & Header Block -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3 leading-tight min-h-[3.5rem] flex items-center justify-center">
+                <span>"</span><span id="typewriter-text" class="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-blue-400 to-emerald-400 typing-cursor"></span><span>"</span>
+            </h1>
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
+                Explore tailored pitch narratives based on personality archetypes. Click a filter button or card to highlight its unique strategy.
+            </p>
+
+            <!-- 3 Color Pill Filters -->
+            <div class="inline-flex justify-center gap-3 p-2 bg-slate-950/90 border border-slate-800 rounded-2xl backdrop-blur-xl shadow-2xl">
+                <button onclick="setArchetype('red')" id="btn-red" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center space-x-2 hover:bg-slate-900">
+                    <span class="w-3 h-3 rounded-full bg-rose-500 shadow-sm shadow-rose-500"></span>
+                    <span>Red</span>
+                </button>
+                <button onclick="setArchetype('blue')" id="btn-blue" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center space-x-2 hover:bg-slate-900">
+                    <span class="w-3 h-3 rounded-full bg-blue-500 shadow-sm shadow-blue-500"></span>
+                    <span>Blue</span>
+                </button>
+                <button onclick="setArchetype('green')" id="btn-green" class="px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center space-x-2 hover:bg-slate-900">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500"></span>
+                    <span>Green</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 3-Column Responsive Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-8">
+
+            <!-- RED CARD -->
+            <div id="card-red" onclick="setArchetype('red')" class="glass-card card-initial-blur red-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between cursor-pointer group relative overflow-hidden">
+                <!-- Top Accent Line -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 to-red-600"></div>
+
+                <div>
+                    <!-- Badge Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="px-3 py-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 font-extrabold text-xs uppercase tracking-wider rounded-lg flex items-center space-x-1.5">
+                            <i class="fa-solid fa-bolt text-rose-500"></i>
+                            <span>Action & Impact</span>
+                        </span>
+                        <i class="fa-solid fa-trophy text-2xl text-rose-400 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+
+                    <!-- Card Content -->
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight uppercase leading-snug mb-2">
+                        YOU NEED TO FAIL TO KNOW YOUR LIMIT
+                    </h2>
+                    <p class="text-xs font-bold text-rose-400 tracking-wider uppercase mb-5">
+                        Pushing Beyond Physical & Mental Capacity
+                    </p>
+
+                    <div class="bg-slate-950/60 rounded-2xl p-4 border border-rose-500/20 mb-6">
+                        <ul class="text-xs text-slate-300 space-y-2.5 font-medium">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-water text-rose-400 mt-0.5"></i>
+                                <span>Rowing the Atlantic Ocean against extreme friction.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-fire text-rose-400 mt-0.5"></i>
+                                <span>Embracing high-risk failure to discover true capabilities.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-gauge-high text-rose-400 mt-0.5"></i>
+                                <span>Unlocking peak human output and physical grit.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direct CTA Link -->
+                <a href="https://youtu.be/DnAfkWlxyv0?si=sWkLZoI4gGlLDwrv" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-rose-600 to-red-600 text-white font-extrabold text-xs sm:text-sm hover:from-rose-500 hover:to-red-500 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-rose-600/30">
+                    <i class="fa-solid fa-play text-xs"></i>
+                    <span>WATCH THE VIDEO</span>
+                </a>
+            </div>
+
+            <!-- BLUE CARD -->
+            <div id="card-blue" onclick="setArchetype('blue')" class="glass-card card-initial-blur blue-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between cursor-pointer group relative overflow-hidden">
+                <!-- Top Accent Line -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+
+                <div>
+                    <!-- Badge Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 font-extrabold text-xs uppercase tracking-wider rounded-lg flex items-center space-x-1.5">
+                            <i class="fa-solid fa-chart-pie text-blue-400"></i>
+                            <span>Data & Frameworks</span>
+                        </span>
+                        <i class="fa-solid fa-diagram-project text-2xl text-blue-400 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+
+                    <!-- Card Content -->
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-2">
+                        UNDERSTANDING FAILURE: TWO PRACTICAL FRAMEWORKS
+                    </h2>
+                    <p class="text-xs font-bold text-blue-400 tracking-wider uppercase mb-5">
+                        Data-Driven Analytics for Leaders
+                    </p>
+
+                    <div class="bg-slate-950/60 rounded-2xl p-4 border border-blue-500/20 mb-6">
+                        <ul class="text-xs text-slate-300 space-y-2.5 font-medium">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-circle-nodes text-blue-400 mt-0.5"></i>
+                                <span><strong>The Capacity Bubble:</strong> Evaluating perceived vs. actual boundaries.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-table-cells text-blue-400 mt-0.5"></i>
+                                <span><strong>Success & Happiness Matrix:</strong> Analyzing Happy/Sad & Succeed/Fail quadrants.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direct CTA Link -->
+                <a href="https://youtu.be/DnAfkWlxyv0?si=sWkLZoI4gGlLDwrv" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-extrabold text-xs sm:text-sm hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-blue-600/30">
+                    <i class="fa-solid fa-play text-xs"></i>
+                    <span>WATCH THE VIDEO</span>
+                </a>
+            </div>
+
+            <!-- GREEN CARD -->
+            <div id="card-green" onclick="setArchetype('green')" class="glass-card card-initial-blur green-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between cursor-pointer group relative overflow-hidden">
+                <!-- Top Accent Line -->
+                <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+
+                <div>
+                    <!-- Badge Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold text-xs uppercase tracking-wider rounded-lg flex items-center space-x-1.5">
+                            <i class="fa-solid fa-users text-emerald-400"></i>
+                            <span>People & Values</span>
+                        </span>
+                        <i class="fa-solid fa-heart-pulse text-2xl text-emerald-400 opacity-80 group-hover:scale-110 transition-transform"></i>
+                    </div>
+
+                    <!-- Card Content -->
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-snug mb-2">
+                        CAN YOU IMAGINE YOUR BOAT CAPSIZING IN THE OCEAN AND STILL BEING HAPPY?
+                    </h2>
+                    <p class="text-xs font-bold text-emerald-400 tracking-wider uppercase mb-5">
+                        Team Resilience, Trust & Psychological Safety
+                    </p>
+
+                    <div class="bg-slate-950/60 rounded-2xl p-4 border border-emerald-500/20 mb-6">
+                        <ul class="text-xs text-slate-300 space-y-2.5 font-medium">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-handshake-angle text-emerald-400 mt-0.5"></i>
+                                <span>Building shared purpose and camaraderie under intense pressure.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-life-ring text-emerald-400 mt-0.5"></i>
+                                <span>Overcoming life's capsize moments through trust and vulnerability.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Direct CTA Link -->
+                <a href="https://youtu.be/DnAfkWlxyv0?si=sWkLZoI4gGlLDwrv" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-extrabold text-xs sm:text-sm hover:from-emerald-500 hover:to-teal-500 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30">
+                    <i class="fa-solid fa-play text-xs"></i>
+                    <span>WATCH THE VIDEO</span>
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-slate-800/80 bg-slate-950 py-6 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-300 font-bold">Four Corners Pitch Framework</span>
+            </div>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="https://youtu.be/DnAfkWlxyv0?si=sWkLZoI4gGlLDwrv" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline flex items-center space-x-1">
+                    <span>Direct YouTube Link</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Logic -->
+    <script>
+        // Typewriter Animation Logic
+        const textToType = "I Seek Failure";
+        const typewriterElement = document.getElementById('typewriter-text');
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeLoop() {
+            if (!typewriterElement) return;
+
+            if (!isDeleting && charIndex <= textToType.length) {
+                typewriterElement.textContent = textToType.substring(0, charIndex);
+                charIndex++;
+                setTimeout(typeLoop, 120);
+            } else if (isDeleting && charIndex >= 0) {
+                typewriterElement.textContent = textToType.substring(0, charIndex);
+                charIndex--;
+                setTimeout(typeLoop, 60);
+            } else if (!isDeleting && charIndex > textToType.length) {
+                isDeleting = true;
+                setTimeout(typeLoop, 2000); // Pause before deleting
+            } else if (isDeleting && charIndex < 0) {
+                isDeleting = false;
+                charIndex = 0;
+                setTimeout(typeLoop, 500); // Pause before re-typing
+            }
+        }
+
+        // Start Typewriter Effect
+        typeLoop();
+
+        const cards = {
+            red: document.getElementById('card-red'),
+            blue: document.getElementById('card-blue'),
+            green: document.getElementById('card-green')
+        };
+
+        const buttons = {
+            red: document.getElementById('btn-red'),
+            blue: document.getElementById('btn-blue'),
+            green: document.getElementById('btn-green')
+        };
+
+        function setArchetype(selected) {
+            // Reset button states
+            Object.keys(buttons).forEach(key => {
+                buttons[key].className = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-slate-400 hover:text-white transition-all duration-300 flex items-center space-x-2 hover:bg-slate-900";
+            });
+
+            // Active button highlight
+            if (selected === 'red') {
+                buttons.red.className = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center space-x-2 bg-rose-600 text-white shadow-md shadow-rose-600/30";
+            } else if (selected === 'blue') {
+                buttons.blue.className = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center space-x-2 bg-blue-600 text-white shadow-md shadow-blue-600/30";
+            } else if (selected === 'green') {
+                buttons.green.className = "px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all duration-300 flex items-center space-x-2 bg-emerald-600 text-white shadow-md shadow-emerald-600/30";
+            }
+
+            // Update Blur and Focus Card States
+            Object.keys(cards).forEach(key => {
+                const card = cards[key];
+                card.classList.remove('card-focused', 'card-unfocused', 'card-initial-blur');
+
+                if (key === selected) {
+                    card.classList.add('card-focused');
+                } else {
+                    card.classList.add('card-unfocused');
+                }
+            });
+        }
+
+        // 3D Tilt effect on focused cards
+        Object.keys(cards).forEach(key => {
+            const card = cards[key];
+
+            card.addEventListener('mousemove', (e) => {
+                if (!card.classList.contains('card-focused')) return;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (centerY - y) / 20;
+                const rotateY = (x - centerX) / 20;
+                card.style.transform = `scale(1.03) translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                if (card.classList.contains('card-focused')) {
+                    card.style.transform = `scale(1.03) translateY(-8px) rotateX(0deg) rotateY(0deg)`;
+                } else if (card.classList.contains('card-initial-blur')) {
+                    card.style.transform = `scale(0.96) translateY(0)`;
+                } else {
+                    card.style.transform = `scale(0.94)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
