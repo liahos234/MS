@@ -1,0 +1,41 @@
+<!-- Save as green.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Card - People & Values</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 50%, #090d16 100%); color: #f8fafc; }
+        .glass-card { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.12); perspective: 1000px; }
+        .green-glow { border-color: rgba(16, 185, 129, 0.6); box-shadow: 0 0 45px -5px rgba(16, 185, 129, 0.5), inset 0 0 20px rgba(16, 185, 129, 0.2); }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div id="card" class="glass-card green-glow rounded-3xl p-6 sm:p-8 flex flex-col justify-between max-w-lg w-full relative overflow-hidden transition-all duration-300">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+        <div>
+            <div class="flex justify-between items-center mb-6">
+                <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-extrabold text-xs uppercase tracking-wider rounded-lg flex items-center space-x-1.5">
+                    <i class="fa-solid fa-users text-emerald-400"></i><span>People & Values</span>
+                </span>
+                <i class="fa-solid fa-heart-pulse text-2xl text-emerald-400"></i>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-black text-white leading-snug mb-2">CAN YOU IMAGINE YOUR BOAT CAPSIZING IN THE OCEAN AND STILL BEING HAPPY?</h2>
+            <p class="text-xs font-bold text-emerald-400 uppercase mb-6">Team Resilience, Trust & Psychological Safety</p>
+            <div class="bg-slate-950/60 rounded-2xl p-5 border border-emerald-500/20 mb-6">
+                <ul class="text-xs sm:text-sm text-slate-300 space-y-3 font-medium">
+                    <li class="flex items-start space-x-2.5"><i class="fa-solid fa-handshake-angle text-emerald-400 mt-0.5"></i><span>Building shared purpose and camaraderie under intense pressure.</span></li>
+                    <li class="flex items-start space-x-2.5"><i class="fa-solid fa-life-ring text-emerald-400 mt-0.5"></i><span>Overcoming life's capsize moments through trust and vulnerability.</span></li>
+                </ul>
+            </div>
+        </div>
+        <a href="https://youtu.be/DnAfkWlxyv0?si=sWkLZoI4gGlLDwrv" target="_blank" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30">
+            <i class="fa-solid fa-play text-xs"></i><span>WATCH THE VIDEO</span>
+        </a>
+    </div>
+</body>
+</html>
